@@ -96,6 +96,14 @@
                                     <action selector="loginTapped:" destination="Kti-zv-EEo" eventType="touchUpInside" id="NPM-c9-7Bh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-8x-cLY">
+                                <rect key="frame" x="63" y="647" width="267" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login with your Google Account"/>
+                                <connections>
+                                    <action selector="googleSignInTapped:" destination="Kti-zv-EEo" eventType="touchUpInside" id="uOP-Tu-rM8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1VE-BV-Jbi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -111,6 +119,8 @@
                             <constraint firstItem="msC-BL-RBn" firstAttribute="top" secondItem="PU6-y6-JpV" secondAttribute="bottom" constant="18" id="aSB-cP-2IB"/>
                             <constraint firstItem="6vU-lx-Lc3" firstAttribute="centerX" secondItem="meO-BP-o32" secondAttribute="centerX" id="bra-bP-L0n"/>
                             <constraint firstItem="PU6-y6-JpV" firstAttribute="leading" secondItem="1VE-BV-Jbi" secondAttribute="leading" constant="64" id="e8k-up-yd5"/>
+                            <constraint firstItem="ufc-8x-cLY" firstAttribute="top" secondItem="6vU-lx-Lc3" secondAttribute="bottom" constant="56" id="fzD-ZA-ypf"/>
+                            <constraint firstItem="ufc-8x-cLY" firstAttribute="centerX" secondItem="6vU-lx-Lc3" secondAttribute="centerX" id="h90-12-oGY"/>
                             <constraint firstItem="msC-BL-RBn" firstAttribute="leading" secondItem="Byr-eB-YQx" secondAttribute="leading" id="l1h-re-6xC"/>
                             <constraint firstItem="msC-BL-RBn" firstAttribute="trailing" secondItem="meO-BP-o32" secondAttribute="trailing" id="liI-du-3tD"/>
                         </constraints>

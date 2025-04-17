@@ -6,6 +6,9 @@
 //
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
+import FirebaseCore
+
 
 class LoginViewController: UIViewController {
 
@@ -46,4 +49,49 @@ class LoginViewController: UIViewController {
         }
 
     }
+    
+    @IBAction func googleSignInTapped(_ sender: UIButton) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        let config = GIDConfiguration(clientID: clientID)
+
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootVC = windowScene.windows.first?.rootViewController else {
+            print("No root view controller found")
+            return
+        }
+
+        GIDSignIn.sharedInstance.configuration = config
+
+        GIDSignIn.sharedInstance.signIn(withPresenting: rootVC) { result, error in
+            if let error = error {
+                print("Google Sign-In Error: \(error.localizedDescription)")
+                return
+            }
+
+            guard let user = result?.user else {
+                print("No user found after sign-in")
+                return
+            }
+
+            let idToken = user.idToken!.tokenString
+            let accessToken = user.accessToken.tokenString
+
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error {
+                    print("Firebase sign-in failed: \(error.localizedDescription)")
+                } else {
+                    print("Signed in with Google: \(authResult?.user.email ?? "No Email")")
+                    
+                    // ✅ Redirect to HomeViewController
+                    self.navigateToHome()
+                }
+            }
+
+        }
+    }
+
+
 }
