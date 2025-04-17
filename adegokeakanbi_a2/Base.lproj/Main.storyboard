@@ -133,22 +133,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-9R-9kl">
-                                <rect key="frame" x="76" y="126" width="240" height="198"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="198" id="Iq6-Wz-3cf"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-9R-9kl">
+                                <rect key="frame" x="76" y="126" width="241" height="198"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5C-OY-aRH">
                                 <rect key="frame" x="36" y="408.66666666666669" width="79" height="34.666666666666686"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Upload"/>
                                 <connections>
-                                    <action selector="uploadTapped:" destination="VeO-l7-fK7" eventType="touchUpInside" id="DEj-em-d0Z"/>
+                                    <action selector="uploadTapped:" destination="VeO-l7-fK7" eventType="touchUpInside" id="L2P-j9-0TR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at0-63-Hnc">
-                                <rect key="frame" x="273" y="409" width="74" height="35"/>
+                                <rect key="frame" x="273" y="408.66666666666669" width="74" height="34.666666666666686"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete"/>
                                 <connections>
@@ -167,20 +164,19 @@
                         <viewLayoutGuide key="safeArea" id="eQG-an-vsf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EVo-9R-9kl" firstAttribute="leading" secondItem="eQG-an-vsf" secondAttribute="leading" constant="76" id="0VQ-vc-Jnf"/>
+                            <constraint firstItem="cWW-gE-yPT" firstAttribute="leading" secondItem="l5C-OY-aRH" secondAttribute="trailing" constant="42" id="2HZ-ie-qFU"/>
                             <constraint firstItem="at0-63-Hnc" firstAttribute="centerY" secondItem="cWW-gE-yPT" secondAttribute="centerY" id="3Js-jZ-gfV"/>
-                            <constraint firstItem="l5C-OY-aRH" firstAttribute="leading" secondItem="eQG-an-vsf" secondAttribute="leading" constant="36" id="8mD-D6-62v"/>
-                            <constraint firstItem="EVo-9R-9kl" firstAttribute="top" secondItem="eQG-an-vsf" secondAttribute="top" constant="67" id="Gx1-Tt-rwY"/>
-                            <constraint firstItem="l5C-OY-aRH" firstAttribute="top" secondItem="EVo-9R-9kl" secondAttribute="bottom" constant="84.666666666666686" id="LNR-3o-rvl"/>
-                            <constraint firstItem="cWW-gE-yPT" firstAttribute="leading" secondItem="l5C-OY-aRH" secondAttribute="trailing" constant="42" id="Oad-Dg-dDx"/>
-                            <constraint firstItem="EVo-9R-9kl" firstAttribute="centerX" secondItem="T0P-K7-sTN" secondAttribute="centerX" id="U7v-ao-R4G"/>
-                            <constraint firstItem="at0-63-Hnc" firstAttribute="centerY" secondItem="l5C-OY-aRH" secondAttribute="centerY" id="cg8-h7-qmv"/>
+                            <constraint firstItem="l5C-OY-aRH" firstAttribute="top" secondItem="EVo-9R-9kl" secondAttribute="bottom" constant="84.666666666666629" id="40V-bo-brS"/>
+                            <constraint firstItem="l5C-OY-aRH" firstAttribute="baseline" secondItem="cWW-gE-yPT" secondAttribute="baseline" id="Mhw-1V-opn"/>
+                            <constraint firstItem="l5C-OY-aRH" firstAttribute="centerY" secondItem="T0P-K7-sTN" secondAttribute="centerY" id="WUo-jL-8rI"/>
                             <constraint firstItem="at0-63-Hnc" firstAttribute="leading" secondItem="cWW-gE-yPT" secondAttribute="trailing" constant="36" id="hvt-HS-TDw"/>
-                            <constraint firstItem="l5C-OY-aRH" firstAttribute="baseline" secondItem="cWW-gE-yPT" secondAttribute="baseline" id="iU4-ew-nY3"/>
-                            <constraint firstItem="l5C-OY-aRH" firstAttribute="centerY" secondItem="T0P-K7-sTN" secondAttribute="centerY" id="o3u-nW-pu8"/>
-                            <constraint firstItem="l5C-OY-aRH" firstAttribute="baseline" secondItem="at0-63-Hnc" secondAttribute="baseline" id="zzL-GG-Vkt"/>
+                            <constraint firstItem="l5C-OY-aRH" firstAttribute="leading" secondItem="eQG-an-vsf" secondAttribute="leading" constant="36" id="lF0-eY-ak2"/>
+                            <constraint firstItem="EVo-9R-9kl" firstAttribute="centerX" secondItem="T0P-K7-sTN" secondAttribute="centerX" id="luF-ea-8gJ"/>
+                            <constraint firstItem="EVo-9R-9kl" firstAttribute="top" secondItem="eQG-an-vsf" secondAttribute="top" constant="23" id="mBy-Do-sc5"/>
+                            <constraint firstItem="EVo-9R-9kl" firstAttribute="leading" secondItem="eQG-an-vsf" secondAttribute="leading" constant="76" id="vCo-WP-Dn8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0fr-AF-XGA"/>
                     <connections>
                         <outlet property="profileImageView" destination="EVo-9R-9kl" id="G8g-U4-4ms"/>
                     </connections>
@@ -340,6 +336,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="idi-Uv-0hV" id="73E-eS-p0v"/>
+                        <segue destination="VeO-l7-fK7" kind="show" identifier="goToProfile" id="FCs-Ct-mI7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWw-sT-XkP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

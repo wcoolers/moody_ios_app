@@ -94,4 +94,19 @@ class FirestoreManager {
                 completion(logs)
             }
     }
+    
+    func deleteMoodLog(withId id: String, completion: @escaping (Bool) -> Void) {
+        db.collection(collection).document(id).delete { error in
+            if let error = error {
+                print("Error deleting mood log: \(error)")
+                completion(false)
+            } else {
+                print("Successfully deleted mood log with ID: \(id)")
+                completion(true)
+            }
+        }
+    }
+
+
+
 }

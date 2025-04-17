@@ -7,12 +7,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var logs: [MoodLog] = []
     let firestore = FirestoreManager()
+    private let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationItem.rightBarButtonItem = logoutButton
     }
 
-
-
     @objc func logoutTapped() {
         do {
             try Auth.auth().signOut()
@@ -45,12 +45,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     @objc func profileTapped() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileViewController {
-            self.navigationController?.pushViewController(profileVC, animated: true)
-        }
+        performSegue(withIdentifier: "goToProfile", sender: self)
     }
-
 
     func listenToLogs() {
         firestore.listenToMoodLogs { logs in
@@ -111,4 +107,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
+    // Swipe-to-delete
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
+            let logToDelete = self.logs[indexPath.row]
+
+            let alert = UIAlertController(
+                title: "Delete Mood",
+                message: "Are you sure you want to delete this mood entry?",
+                preferredStyle: .alert
+            )
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                completionHandler(false)
+            })
+
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+                self.firestore.deleteMoodLog(withId: logToDelete.id) { success in
+                    DispatchQueue.main.async {
+                        // ❌ REMOVE THESE LINES:
+                        // self.logs.remove(at: indexPath.row)
+                        // self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
+                        // ✅ Let Firestore listener refresh the logs list
+                        completionHandler(success)
+                    }
+                }
+            })
+
+            self.present(alert, animated: true)
+        }
+
+
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }

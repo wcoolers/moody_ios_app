@@ -19,7 +19,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
     @IBAction func uploadTapped(_ sender: UIButton) {
+        print("Upload tapped ✅")
         presentImagePicker()
+        
     }
     
     @IBAction func updateTapped(_ sender: UIButton) {
