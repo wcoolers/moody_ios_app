@@ -32,7 +32,8 @@ class SignUpViewController: UIViewController {
                 self.showAlert("Error: \(error.localizedDescription)")
             } else {
                 self.showAlert("Account created!", completion: {
-                    self.navigationController?.popViewController(animated: true)
+//                    self.navigationController?.popViewController(animated: true)
+                    self.navigateToHome()
                 })
             }
         }
@@ -42,6 +43,16 @@ class SignUpViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in completion?() })
         present(alert, animated: true)
+    }
+    
+    func navigateToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController {
+            let navController = UINavigationController(rootViewController: homeVC)
+            navController.modalPresentationStyle = .fullScreen
+            self.present(navController, animated: true, completion: nil)
+        }
+
     }
 }
 
